@@ -1,0 +1,143 @@
+body{
+    background-color: #F1E3D3;
+}
+
+
+    /* NAVBAR */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: #EAAC8B;
+    height: 100%;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+              
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li .titre{
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 50px;
+    color: #E56B6F;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #B56576;
+    transition: 0.3s ease;
+}
+        
+#navbar li a:hover{
+    color:#F1E3D3;
+}
+
+
+  /* CONTENT */
+  .localisation{
+    display: flex;
+    align-items: center;
+    width: 777px;
+    height: 606px;
+    margin: 50px auto;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px lightgray;
+    /* stroke-width: 616px; */
+    /* stroke-linecap: round; */
+    font-weight: bold;
+    font-family: "Montserrat Alternates", sans-serif;
+    padding: 12px;
+    /* display: grid;
+    align-items: center; */
+}
+
+
+.contact-in{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px 0 #666;
+}
+.map{
+    width: 100%;
+    height: auto;
+    flex: 50%;
+}
+.contact-map iframe{
+  width: 100%;
+  height: 100%;
+}
+
+
+.button{
+    margin-top: 20px;
+    background: #E56B6F;
+    border: none;
+    outline: none;
+    letter-spacing: .04em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    padding: 15px 20px;
+}
+
+
+
+    /* FOOTER */
+
+footer{
+    display: flex;
+    height: 100px;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #B56576;
+}
+
+.footContent{
+    justify-content: space-between;
+}
+
+#foot{
+    display: flex;
+    align-items: center;
+}
+
+
+footer li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+footer li a{
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f9f9f9;
+    transition: 0.3s ease;
+}
