@@ -19,15 +19,16 @@
         <li><a href="http://localhost/filRouge/login">Connexion</a></li>
         <li><a href="http://localhost/filRouge/annonces">Les annonces</a></li>
         <li><a href="#">Les activités</a></li>
+        <li><a href="http://localhost/filRouge/">Accueil</a></li>
       </ul>
     </nav>
 
     <div id="imgPrincipale">
       <h1>Baby Community</h1>
       <div id="firstTrait"></div>
-      <h3>Le site communautaire pour les parents autour des enfants</h3>
     </div>
   </header>
+
 
     <!-- FORMULAIRE DE CONNEXION -->
     <div class="form">
@@ -35,26 +36,27 @@
             <h3>Se connecter</h3>
             <form action="" method="post">
                 <p>Email</p>
-                <input type="mail" name="email_connexion" id="mail" required>
+                <input type="mail" name="mail_util" id="mail" required>
                 <p>Mot de passe</p>
                 <input type="password" name="mdp_connexion" id="mdp" required>
                 <p><input class="btn" type="submit" value="Connexion" name="Se connecter"></p>
             </form>
         </div>
         <span class="vertical line"></span>
+
+
             <!-- FORMULAIRE D'INSCRIPTION -->
         <div class="contentIns">
             <h3>S'inscrire</h3>
-            <form action="" method="post">
-
-                <p>Pseudo :</p>
-                <input type="text" name="prenom_inscription" required>
+            <form action="" method="POST">
+                <p>Nom :</p>
+                <input type="text" name="nom_util" required>
                 <p>Email :</p>
-                <input type="email" name="email_inscription" required>
+                <input type="email" name="mail_util" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
                 <p>Adresse :</p>
-                <input type="text" name="adresse_inscription" required>
-                <p>Mot de passe</p>
-                <input type="password" name="mdp_inscription" required>
+                <input type="text" name="adresse_util" required>
+                <p>Mot de passe :</p>
+                <input type="password" name="mdp_util" required>
                 <p><input class="btnIns" type="submit" value="Inscription" name="inscription" required></p>
             </form>
         </div>

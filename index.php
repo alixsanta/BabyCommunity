@@ -6,7 +6,7 @@
     //test soit l'url a une route sinon on renvoi à la racine
     $path = isset($url['path']) ? $url['path'] : '/';
 
-    /*--------------------------ROUTER -----------------------------*/
+    /*--------------------------ROUTEUR -----------------------------*/
     //test de la valeur $path dans l'URL et import de la ressource
     switch($path){
         case $path === "/filRouge/":
@@ -18,7 +18,7 @@
             break;
 
         case $path === "/filRouge/login":
-            include './controlers/controlerLogIn.php';
+            include './controlers/controlerLogin.php';
             break;
 
         case $path === "/filRouge/annonces":

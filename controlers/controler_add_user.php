@@ -1,40 +1,52 @@
 <?php 
-    /* ------------------------------ IMPORTS ------------------------------ */
+    // IMPORTS
     include './utils/connectBdd.php';
-    include './models/model_util.php';
-    include './views/view_inscription_connexion.php';
+    include './models/model_users.php';
+    include './views/viewLogin.php';
 
 
-        /* ------------------------------ LOGIQUE ------------------------------ */
-    // /**
-    //  * logique pour la liste des categorie
-    //  */
-    // // on creer une nouvelle instance des annonces
-    // $all = new Annonce(null);
-    // // on recupere la liste des annonces en BDD
-    // $data = $all->getAllAnnonce($bdd);
-    // foreach($data as $value){
-    //     echo '
-    //     <script>
-    //         addOption("'.$value->nom_annonce.'", "'.$value->id_annonce.'");
-    //     </script>';
-    // }
+    // LOGIQUE
+    // Pour les messages d'erreurs 
+    $message = "";
 
+    if(isset($_POST['addUser'])){
+        if($_POST['nom_util'] !="" &&
+           $_POST['mail_util'] !="" &&
+           $_POST['adresse_util'] !="" &&
+           $_POST['mdp_util'] !="") {
+            
+            // création d'un nouvel utilisateur
+            $util = new Utilisateur
+            ($_POST['nom_util'],
+             $_POST['mail_util'],
+             $_POST['adresse_util'],
+             $_POST['mdp_util']);
 
-    
-     // logique pour l'ajout d'un utilisateur
+            // hashage du mot de passe
+            $util -> setPwdUtil(password_hash($util -> getPwdUtil(), PASSWORD_DEFAULT));
+            
+            // méthode de recherche d'utilisateur pas son mail
+            $mail = $util -> showUserByMail($bdd);
 
-    // on verifie si les champs sont remplis et non vide
-    if(isset($_POST['nom_util']) AND isset($_POST['prenom_util']) AND isset($_POST['mail_util']) AND isset($_POST['mdp_util']) && ($_POST['nom_util'] != "") &&
-     ($_POST['prenom_util'] != "") && ($_POST['mail_util'] != "") && ($_POST['mdp_util'] != "")){
-        $nom = $_POST['nom_util'];
-        $prenom = $_POST['prenom_util'];
-        $mail = $_POST['mail_util'];
-        $mdp = $_POST['mdp_util'];
+            // test si le mail n'existe pas
+            if(empty($mail)){
+                $util -> createUser($bdd);
+                // message compte crée
+                $message = 'votre compte '.$util->getMailUtil().' a été crée';
+            }
+            else {
+                // message si compte déja existant
+                $message = "Ce compte existe déjà";
+            }
+        }
+        else {
+            // message si formulaire incomplet
+            $message = "Veuillez compléter tous les champs du formulaire";
+        }
     }
-    else{
-        echo "<p>Veuillez remplir tous les champs du formulaire</p>";
+    else {
+        // si l'utilisateur n'a pas cliqué sur inscription
+        $message = "Veuillez cliquer sur inscription pour créer votre compte";
     }
-
 ?>
 

@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="essai.css">
-    <title>Annonces</title>
+    <link rel="stylesheet" href="./assets/style/login.css">
+    <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https : //fonts.googleapis.com/css2?family= Poppins: wght @300 & display=swap" rel="stylesheet"> -->
+    <title>Baby Community</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="menu">
-                
-                    <ul>
-                        <li><a href="about.html">a propos de nous</a></li>
-                        <li><a href="connexion.html">Connexion</a></li>
-                        <li><a href="accueil.html"></a><h1>Baby community</h1></li>
-                        <li><a href="annonces.html">les annonces</a></li>
-                        <li><a href="gallery.html"><img src=".C:\Users\AlixAllegre\Pictures/loupe.png">rechercher</a></li>
-                    </ul>
-                </div>
-        </nav>
-    </header>
+<header>
+    <nav>
+      <ul>
+        <li id="logo"><a href="http://localhost/filRouge/">Baby Community</a></li>
+        <li><a href="http://localhost/filRouge/login">Connexion</a></li>
+        <li><a href="http://localhost/filRouge/annonces">Les annonces</a></li>
+        <li><a href="#">Les activités</a></li>
+        <li><a href="http://localhost/filRouge/">Accueil</a></li>
+      </ul>
+    </nav>
+
+    <div id="imgPrincipale">
+      <h1>Baby Community</h1>
+      <div id="firstTrait"></div>
+      <h3>Le site communautaire pour les parents autour des enfants</h3>
+    </div>
+  </header>
+
+    <!-- FORMULAIRE DE CONNEXION -->
+    <div class="form">
     <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -35,11 +45,14 @@
         It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
         with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </p>
+    </div>
+
     <footer>
-            <ul>
-                <li class="ml"><a href="mentions.html">Mentions légales</a></li>
-                <li class="reseau"><a href="https://www.instagram.com/kfc.es/?hl=fr"><img src="./images/instagram.png"></a></li>
-                <li class="reseau"><a href="https://twitter.com/KFC_ES"><img src="./images/facebook.png"></a></li>
+            <ul id="foot">
+                <li><a href="mentions.html">Mentions légales</a></li>
+                <li><a href="https://www.instagram.com/kfc.es/?hl=fr"><img src=".assets/images/instagram.png"></a></li>
+                <li><a href="https://twitter.com/KFC_ES"><img src=".assets/images/twitter.png"></a></li>
+                <li><a href="https://twitter.com/KFC_ES"><img src=".assets/images/pinterest.png"></a></li>
             </ul>
     </footer>
 </body>

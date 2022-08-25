@@ -24,7 +24,7 @@
     /**
      * logique pour l'ajout d'un article
      */
-    // on verifie si les champs osnt remplis et non vide
+    // on verifie si les champs sont remplis et non vide
     if(isset($_POST['nom_art']) && ($_POST['nom_art'] != "") &&
     isset($_POST['content_art']) && ($_POST['content_art'] != "")){
         $nom = $_POST['nom_art'];
