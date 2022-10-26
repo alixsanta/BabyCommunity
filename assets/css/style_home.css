@@ -69,7 +69,7 @@ header li a:hover{
 /* ********* IMAGE PRINCIPALE ********* */
 #imgPrincipale{
     padding-top: 60px;
-    background: url(medias/entete.jpg) no-repeat fixed 50% 50%;
+    background: url(./medias/entete.jpg) no-repeat fixed 50% 50%;
     background-size: cover;
     height: 799px;
 }

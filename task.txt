@@ -1,0 +1,28 @@
+Models et Managers :
+[X] users
+[X] annonces
+[X]
+
+Page de création de compte - Connexion :
+[X] créer la vue
+[X] creer le controller
+[X] créer la fonctionnalité création de compte
+[X] créer la fonctionnalité Connexion
+[X] créer le style
+
+
+
+Page de profil :
+[X] créer la vue
+[X] creer le controller
+[X] créer les fonctionnalités :
+                [X] Afficher le profil
+                [X] Modifier le profil
+                [X] Supprimer le profil
+
+                [X] Afficher les annonces
+                [X] Modifier les annonces
+                [X] Supprimer les annonces
+[X] créer le style
+
+
