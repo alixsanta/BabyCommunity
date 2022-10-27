@@ -1,3 +1,9 @@
+[X] Connexion
+[X] Deconnexion
+[X] Sécurité
+[X] rôle admin ou util
+
+
 Models et Managers :
 [X] users
 [X] annonces
@@ -5,7 +11,7 @@ Models et Managers :
 
 Page de création de compte - Connexion :
 [X] créer la vue
-[X] creer le controller
+[X] creer les controller
 [X] créer la fonctionnalité création de compte
 [X] créer la fonctionnalité Connexion
 [X] créer le style
@@ -20,9 +26,22 @@ Page de profil :
                 [X] Modifier le profil
                 [X] Supprimer le profil
 
+                [X] créer une annonce
                 [X] Afficher les annonces
                 [X] Modifier les annonces
                 [X] Supprimer les annonces
-[X] créer le style
+[X] faire le style
 
 
+Annonces :
+
+[X] créer le Managers
+[X] créer la vue 
+[X] créer le controlleur
+[X] créer le Model
+[X] les fonctionnalités :
+                [X] créer une annonce
+                [X] afficher les annonces
+                [X] modifier les annonces
+                [X] supprimer les annonces
+[X] faire le style

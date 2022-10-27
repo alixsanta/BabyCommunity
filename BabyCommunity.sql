@@ -1,22 +1,23 @@
 create database babyCommunity;
 use babyCommunity;
 
-create table utilisateurs
+create table utilisateur
 (
 	id_util int primary key auto_increment not null,
     nom_util varchar(50),
     prenom_util varchar(50),
     mail_util varchar(50),
     mdp_util varchar(100) not null,
+    id_droit int,
     id_annonce int
 )engine=InnoDB;
 
-create table droits
+create table droit
 (
 	id_droit int primary key auto_increment not null
 )engine=InnoDB;
 
-create table annonces
+create table annonce
 (
 	id_annonce int primary key auto_increment not null,
     titre_annonce varchar(50),

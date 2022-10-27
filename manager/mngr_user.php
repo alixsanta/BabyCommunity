@@ -7,40 +7,37 @@
     
 
 
-    class ManagerUtilisateur extends Utilisateur{
-        /*--------------------------- METHODS ---------------------------*/
-        /**
-         * Methode qui permet d'ajouter un nouvel utilisateur en BDD
-         */
+    class ManagerUtilisateur extends Utilisateur {
+
         public function createUser(object $bdd):void{
             try{
-                $name = $this->getNameUtil();
-                $firstName = $this->getFirstNameUtil();
+                $nom = $this->getNomUtil();
+                $prenom = $this->getPrenomUtil();
                 $mail = $this->getMailUtil();
-                $pwd = $this->getPwdUtil();
-                $token = $this->getTokenUtil();
-                $req = $bdd->prepare('INSERT INTO utilisateur(name_util, first_name_util, mail_util, pwd_util, token_util) 
-                VALUES(?, ?, ?, ?, ?);');
-                $req->bindparam(1, $name, PDO::PARAM_STR);
-                $req->bindparam(2, $firstName, PDO::PARAM_STR);
+                $mdp = $this->getMdpUtil();
+                $droit = $this->getIdRole();
+                // $token = $this->getTokenUtil();
+                $req = $bdd->prepare('INSERT INTO utilisateur(nom_util, prenom_util, mail_util, mdp_util, token_util, id_droit) 
+                VALUES(?, ?, ?, ?, ?, ?);');
+                $req->bindparam(1, $nom, PDO::PARAM_STR);
+                $req->bindparam(2, $prenom, PDO::PARAM_STR);
                 $req->bindparam(3, $mail, PDO::PARAM_STR);
-                $req->bindparam(4, $pwd, PDO::PARAM_STR);
+                $req->bindparam(4, $mdp, PDO::PARAM_STR);
                 $req->bindparam(5, $token, PDO::PARAM_STR);
+                $req->bindparam(6, $droit, PDO::PARAM_INT);
                 $req->execute();
             }
             catch(Exception $e){
-                // affichage d'une exception en cas d’erreur
                 die('Erreur : '.$e->getMessage());
             }
         }
 
-        /**
-         * Methode qui recupere les informations d'un utilisateur par son e-mail 
-         */
+
+        // récupere les informations de l'utilisateur par son e-mail
         public function getUserByEmail(object $bdd){
             try{
                 $mail = $this->getMailUtil();
-                $req = $bdd->prepare('SELECT id_util, name_util, first_name_util, mail_util, pwd_util, token_util, valide_util, id_role 
+                $req = $bdd->prepare('SELECT id_util, nom_util, prenom_util, mail_util, mdp_util, token_util, valide_util, id_droit 
                 FROM utilisateur
                 WHERE mail_util = ?;');
                 $req->bindparam(1, $mail, PDO::PARAM_STR);
@@ -48,15 +45,12 @@
                 return $req->fetch(PDO::FETCH_OBJ);
             }
             catch(Exception $e){
-                // affichage d'une exception en cas d’erreur
                 die('Erreur : '.$e->getMessage());
             }
         }
 
-        /**
-         * Methode qui permet d'envoyer un mail
-         * Ici avec un compte outlook
-         */
+
+        // permet d'envoyer un mail depuis un compte outlook
         public function sendMail(?string $userMail, ?string $subject, ?string $message, string $email_smtp, string $mdp_smtp){
             // Load Composer's autoloader
             require 'vendor/autoload.php';
@@ -120,9 +114,8 @@
             }
         }
 
-        /**
-         * Fonction d'activation d'un compte
-         */
+
+        // Fonction d'activation de compte
         public function activateUser(object $bdd):void{
             try{
                 $token = $this->getTokenUtil();
@@ -133,16 +126,11 @@
                 $req->execute();
             }
             catch(Exception $e){
-                // affichage d'une exception en cas d’erreur
                 die('Erreur : '.$e->getMessage());
             }
         }
 
     }
-
-
-
-
 
     // fonctin transférée du model
     function getUserByMail($bdd, $mail){
@@ -155,7 +143,8 @@
             $data = $req->fetchAll(PDO::FETCH_ASSOC);
             return $data[0]['mail_user'];
         }
-        catch(Exception $e){                die('Erreur : '.$e->getMessage());
+        catch(Exception $e){                
+            die('Erreur : '.$e->getMessage());
         }
     }
 ?>
