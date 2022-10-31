@@ -20,11 +20,15 @@ Page de création de compte - Connexion :
 
 Page de profil :
 [X] créer la vue
-[X] creer le controller
+[X] creer le controller :
+            **  [X] afficher profil **
+            **  [X] modifier profil **
+            **  [X] supprimer profil **
+
 [X] créer les fonctionnalités :
                 [X] Afficher le profil
-                [X] Modifier le profil
-                [X] Supprimer le profil
+            **  [X] Modifier le profil  **
+            **  [X] Supprimer le profil **
 
                 [X] créer une annonce
                 [X] Afficher les annonces
@@ -34,14 +38,26 @@ Page de profil :
 
 
 Annonces :
-
 [X] créer le Managers
 [X] créer la vue 
-[X] créer le controlleur
+[X] créer le controlleur :
+                [X] créer annonce
+                [X] modifier annonce
+                [X] supprimer annonce
+                [X] consulter annonce
+
 [X] créer le Model
 [X] les fonctionnalités :
+                [X] showAnnonceById
                 [X] créer une annonce
                 [X] afficher les annonces
                 [X] modifier les annonces
                 [X] supprimer les annonces
+
 [X] faire le style
+
+
+Contact :
+[X] créer le Manager
+[X] créer le model
+[X] créer le controller

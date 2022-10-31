@@ -20,13 +20,13 @@
         </nav>
         <div id="imgPrincipale">
             <h1>Baby Community</h1>
-            <!-- <div id="firstTrait"></div> -->
+            <div id="firstTrait"></div>
             <h3>Le site communautaire pour les parents autour des enfants</h3>
         </div>
     </header>
 
     <section id="Presentation">
-        <div id="intro">
+        <!-- <div id="intro">
             <h2>Découvrez ce qu'il se passe près de vous</h2>
             <div class="contain">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -36,7 +36,7 @@
                     architecto qui doloribus numquam molestiae dignissimos obcaecati
                     dolor aperiam iste!</p>
             </div>
-        </div>
+        </div> -->
 
         <h2>Les annonces à la une</h2>
         <div class="cardContainer">
@@ -90,40 +90,21 @@
         <button class="btn" type="button">Découvrez plus d'annonces</button>
     </section>
 
-
-
-<!-- ********* CARITATIF ********* -->
-    <section>
-        <h2 class="title-section">Côté caritatif</h2>
-        <div id="caritatif">
-            <a class="imgAssoc plant3"></a>
-            <h3>L'association de la semaine</h3>
-            <!-- <p>Parrainez un enfant</p> -->
-        </div>
-        <!-- <a href="#"><img src="medias/assoc.jpg" width="400" alt=""></a> -->
-            <!-- <div class="card">
-        <h4>Les meilleurs parcs près de Grasse et ses alentours</h4>
-        <a href="#"><img src="medias/poussette.jpg" width="200" alt=""></a>
-      </div>
-      <div class="card">
-        <h4>Les meilleurs parcs près de Grasse et ses alentours</h4>
-        <a href="#"><img src="medias/poussette.jpg" width="200" alt=""></a>
-      </div> -->
-    <!-- <ul>
-      <li id="assos"><p>L'assosiation de la semaine</p></li>
-      <li id="dons"><p>Donnez au plus démunis</p></li>
-      <li id="couches"><p>les couches</p></li>
-    </ul> -->
-    </section>
-
-
     <!-- ********* FOOTER ********* -->
     <footer>
         <h2 id="contact">Contactez-moi</h2>
         <form>
-            <input type="text" placeholder="Nom">
-            <input type="text" placeholder="Email">
-            <textarea cols="30" rows="10" placeholder="dites nous tout !"></textarea>
+            <div class="box-input">
+                <input type="text" name="prénom_util" required>
+                <span>Prénom</span>
+            </div>
+            <div class="box-input">
+                <input type="mail" name="mail_util" required>
+                <span>Email</span>
+            <div class="box-input">
+                <textarea cols="30" rows="10" name="contenu_contact" required></textarea>
+                <span>Dites moi tout !</span>
+            </div>
             <button>Envoyer</button>
         </form>
 

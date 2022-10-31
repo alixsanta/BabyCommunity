@@ -22,8 +22,8 @@ create table annonce
 	id_annonce int primary key auto_increment not null,
     titre_annonce varchar(50),
     contenu_annonce varchar(100),
-    prix_annonce varchar(50),
-    photo_annonce blob
+    prix_article varchar(50),
+    photo_article blob
 )engine=InnoDB;
 
 create table localisation

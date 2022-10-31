@@ -20,8 +20,6 @@
             $this-> valide_util = 0;
         }
 
-        
-
                 // ***GETTER***
         public function getIdUtil():?int{
             return $this->id_util;

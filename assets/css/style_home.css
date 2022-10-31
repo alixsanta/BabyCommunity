@@ -191,30 +191,6 @@ transition: 0.6s ease-in-out;
 }
 
 
-/* ********* CARITATIF ********* */
-.imgAssoc{
-    /* padding-top: 60px;
-    background-size: cover;
-    height: 799px; */
-}
-.plant3{
-    /* background-image: url(medias/assoc.jpg); */
-
-/* #caritatif{ */
-/* align-items: center;
-width: 777px;
-height: 606px;
-margin: 50px auto;
-text-align: center;
-background-image: url(medias/assoc.jpg);
-/* font-weight: bold; 
-font-family: "Montserrat Alternates", sans-serif;
-padding: 12px;
-border-radius: 33px 33px 32px 33px;
-border: 27px solid rgba(211, 211, 211, 0.384); */
-}
-
-
 /* ********* FOOTER ********* */
 footer{
     background-color: #B56576;

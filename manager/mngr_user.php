@@ -95,9 +95,7 @@
             }
         }
 
-        /**
-         * Fonction qui recupére un utilisateur par son token
-         */
+        // Récupere un utilisateur par son token
         public function getUserByToken(object $bdd){
             try{
                 $token = $this->getTokenUtil();
@@ -114,8 +112,7 @@
             }
         }
 
-
-        // Fonction d'activation de compte
+        // Activation de compte
         public function activateUser(object $bdd):void{
             try{
                 $token = $this->getTokenUtil();
@@ -130,21 +127,62 @@
             }
         }
 
+        // Afficher les détails de l'utilisateur
+        public function showUserById($bdd):array{
+            try{
+                $req = $bdd->prepare('SELECT * FROM utilisateur 
+                WHERE id_util = :id_util');
+                $req->execute(array(
+                    'id_util' => $this->getIdUtil(),
+                    ));
+                $data = $req->fetchAll(PDO::FETCH_ASSOC);
+                return $data;
+            }
+            catch(Exception $e){
+                die('Erreur : '.$e->getMessage());
+            }
+        }
+
+        // Modifier les données utilisateur
+        public function updateUser($bdd):void{
+            $nom = $this->getNomUtil();
+            $prenom = $this->getPrenomUtil();
+            $mail = $this->getMailUtil();
+            $mdp = $this->getMdpUtil();
+            $id = $this->getIdUtil();
+            try{
+                $req = $bdd->prepare('UPDATE utilisateur
+                                      SET nom_util = :nom_util, prenom_util = :prenom_util,
+                                          mail_util = :mail_util, mdp_util = :mdp_util
+                                      WHERE id_util = :id_util');
+                $req->execute(array(
+                    'nom_util' => $nom,
+                    'prenom_util' =>$prenom,
+                    'mail_util' =>$mail,
+                    'mdp_util' =>$mdp,
+                    'id_util' => $id
+                    ));
+            }
+            catch(Exception $e){
+                die('Erreur : '.$e->getMessage());
+            }
+        }
+
+        //supprimer son compte utilisateur
+        public function deleteUser($bdd):void{
+            try{
+                $req = $bdd->prepare('DELETE FROM utilisateur 
+                WHERE id_util = :id_util');
+                $req->execute(array(
+                    'id_util' => $this->getIdUser(),
+                    ));
+            }
+            catch(Exception $e)
+            {
+                // affichage d'une exception en cas d’erreur
+                die('Erreur : '.$e->getMessage());
+            }
+        }
     }
 
-    // fonctin transférée du model
-    function getUserByMail($bdd, $mail){
-        try{
-            $req = $bdd->prepare('SELECT login_user FROM utilisateurs 
-            WHERE mail_user=:mail_user');
-            $req->execute(array(
-                'mail_user' =>$mail,
-                ));
-            $data = $req->fetchAll(PDO::FETCH_ASSOC);
-            return $data[0]['mail_user'];
-        }
-        catch(Exception $e){                
-            die('Erreur : '.$e->getMessage());
-        }
-    }
 ?>
