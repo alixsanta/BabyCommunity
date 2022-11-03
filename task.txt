@@ -2,6 +2,7 @@
 [X] Deconnexion
 [X] Sécurité
 [X] rôle admin ou util
+[X] Chercher Formulaire de contact
 
 
 Models et Managers :
