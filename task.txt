@@ -1,0 +1,64 @@
+[X] Connexion
+[X] Deconnexion
+[X] Sécurité
+[X] rôle admin ou util
+[X] Chercher Formulaire de contact
+
+
+Models et Managers :
+[X] users
+[X] annonces
+[X]
+
+Page de création de compte - Connexion :
+[X] créer la vue
+[X] creer les controller
+[X] créer la fonctionnalité création de compte
+[X] créer la fonctionnalité Connexion
+[X] créer le style
+
+
+
+Page de profil :
+[X] créer la vue
+[X] creer le controller :
+            **  [X] afficher profil **
+            **  [X] modifier profil **
+            **  [X] supprimer profil **
+
+[X] créer les fonctionnalités :
+                [X] Afficher le profil
+            **  [X] Modifier le profil  **
+            **  [X] Supprimer le profil **
+
+                [X] créer une annonce
+                [X] Afficher les annonces
+                [X] Modifier les annonces
+                [X] Supprimer les annonces
+[X] faire le style
+
+
+Annonces :
+[X] créer le Managers
+[X] créer la vue 
+[X] créer le controlleur :
+                [X] créer annonce
+                [X] modifier annonce
+                [X] supprimer annonce
+                [X] consulter annonce
+
+[X] créer le Model
+[X] les fonctionnalités :
+                [X] showAnnonceById
+                [X] créer une annonce
+                [X] afficher les annonces
+                [X] modifier les annonces
+                [X] supprimer les annonces
+
+[X] faire le style
+
+
+Contact :
+[X] créer le Manager
+[X] créer le model
+[X] créer le controller

@@ -1,45 +1,52 @@
 <?php
-    //session start
     session_start();
+    // if(isset($_SESSION['connected'])){
+    //     include './views/view_home.html';
+    // }
+    // else{
+    //     include './views/view_create_connexion.html';
+    // }
+
+	// if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+	//     $uri = 'https://';
+	// } else {
+	//     $uri = 'http://';
+	// }
+	// $uri .= $_SERVER['HTTP_HOST'];
+	// header('Location: '.$uri.'/babyCommunity/');
+	// exit;
+
     //Analyse de l'URL avec parse_url() et retourne ses composants
     $url = parse_url($_SERVER['REQUEST_URI']);
     //test soit l'url a une route sinon on renvoi à la racine
     $path = isset($url['path']) ? $url['path'] : '/';
 
-    /*--------------------------ROUTEUR -----------------------------*/
-    //test de la valeur $path dans l'URL et import de la ressource
-    switch($path){
-        case $path === "/filRouge/":
-            include './controlers/controlerHome.php';
+    //routeur
+    switch ($path) {
+        // Accueil
+        case '/babyCommunity/home':
+            include './views/view_home.html';
             break;
 
-        case $path === "/filRouge/about":
-            include './controlers/controlerAbout.php';
+        // formulaire de connexion création
+        case '/babyCommunity/create_co':
+            include './controllers/ctrl_connexion.php';
             break;
 
-        case $path === "/filRouge/login":
-            include './controlers/controlerLogin.php';
+        // page d'annonce
+        case '/babyCommunity/annonce':
+            include './controllers/ctrl_annonce.php';
             break;
 
-        case $path === "/filRouge/annonces":
-            include './controlers/controlerAnnonces.php';
+        // page de Profil
+        case '/babyCommunity/annonce':
+            include './controllers/ctrl_annonce.php';
             break;
 
-        case $path === "/filRouge/about":
-            include './controlers/controlerAbout.php';
+
+        //cas la route n'existe pas
+        default:
+            include './view/view_404.php';
             break;
-        
-        case $path === "/filRouge/rechercher":
-            include './controlers/controlerLocalisation.php';
-            break;
-          
-        // //route /evalmvc/error -> ./error.php
-        // case $path === "/cours_php/evalmvc/error":
-        //     include './error.php';
-		//     break ;
-        // //route en cas d'erreur
-        // case $path !== "/cours_php/evalmvc/":
-        //     include './error.php';
-		//     break ;
     }
 ?>
