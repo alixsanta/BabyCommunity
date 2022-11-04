@@ -3,16 +3,15 @@
         private ?int $id_annonce;
         private ?string $titre_annonce;
         private ?string $contenu_annonce;
+        private ?string $taille_article;
         private ?string $prix_article;
-        private ?string $photo_article;
-        // private ?string $token_annonce;
         private ?int $id_util;
 
-        public function __construct(?string $titre, ?string $contenu, ?string $prix, ?string $photo, ?int $util){
+        public function __construct(?string $titre, ?string $contenu, ?string $taille, ?string $prix, ?int $util){
             $this-> titre_annonce = $titre;
             $this-> contenu_annonce = $contenu;
+            $this-> taille_article = $taille;
             $this-> prix_article = $prix;
-            $this-> photo_article = $photo;
             $this-> id_util = $util;
         }
 
@@ -29,16 +28,12 @@
             return $this->contenu_annonce;
         }
 
+        public function getailleArticle():?string{
+            return $this->taille_article;
+        }
+
         public function getPrixArticle():?string{
             return $this->prix_article;
-        }
-
-        public function getPhotoArticle():?string{
-            return $this->photo_article;
-        }
-
-        public function getTokenAnnonce():?string{
-            return $this->token_annonce;
         }
 
         public function getIdUtil():?int{
@@ -59,16 +54,12 @@
             $this->contenu_annonce = $contenu;
         }
 
+        public function setTailleArticle(?string $taille):void{
+            $this->taille_article = $taille;
+        }
+
         public function setPrixArticle(?string $prix):void{
             $this->prix_article = $prix;
-        }
-
-        public function setPhotoArticle(?string $photo):void{
-            $this->photo_article = $photo;
-        }
-
-        public function setTokenUtil(?string $token):void{
-            $this->token_util = $token;
         }
         
         public function setIdUtil(?int $util):void{

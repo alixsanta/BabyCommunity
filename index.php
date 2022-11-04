@@ -38,6 +38,11 @@
             include './controllers/ctrl_annonce.php';
             break;
 
+        // poster annonce
+        case '/babyCommunity/post':
+            include './controllers/ctrl_create_annonce.php';
+            break;
+
         // page de Profil
         case '/babyCommunity/annonce':
             include './controllers/ctrl_annonce.php';

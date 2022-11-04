@@ -2,7 +2,7 @@
     /* ------------------------------ IMPORTS ------------------------------ */
     include './utils/connectBdd.php';
     include './models/model_annonce.php';
-    include './views/view_annonces.php';
+    // include './views/view_annonces.php';
 
 
     /* ------------------------------ LOGIQUE ------------------------------ */
