@@ -3,30 +3,20 @@
     include './utils/functions.php';
     include './models/mdl_annonce.php';
     include './managers/mngr_annonce.php';
-    include './views/view_post_annonce.html';
+    include './views/view_post_annonce.php';
     $message = "";
 
     if(isset($_POST['poster'])){
-    if($_POST['id_util'] !="" && $_POST['date_enlevement'] !="" && $_POST['heure_enlevement'] !="" &&
-           $_POST['adresse_enlevement'] !="" && $_POST['ville_enlevement'] !="" &&
-           $_POST['pays_enlevement'] !="" && $_POST['date_livraison'] !="" &&
-           $_POST['heure_livraison'] !="" && $_POST['adresse_livraison'] !="" &&
-           $_POST['ville_livraison'] !="" && $_POST['pays_livraison'] !=""){
-            $dateE = cleanInput($_POST['date_enlevement']);
-            $heureE = cleanInput($_POST['heure_enlevement']);
-            $adresseE = cleanInput($_POST['adresse_enlevement']);
-            $villeE = cleanInput($_POST['ville_enlevement']);
-            $paysE = cleanInput($_POST['pays_enlevement']);
-        
-            $dateL = cleanInput($_POST['date_livraison']);
-            $heureL = cleanInput($_POST['heure_livraison']);
-            $adresseL = cleanInput($_POST['adresse_livraison']);
-            $villeL = cleanInput($_POST['ville_livraison']);
-            $paysL = cleanInput($_POST['pays_livraison']);
+    if($_POST['titre_annonce'] !="" && $_POST['contenu_annonce'] !="" &&
+       $_POST['taille_annonce'] !="" && $_POST['prix_article'] !=""){
+            $titre = cleanInput($_POST['titre_annonce']);
+            $contenu = cleanInput($_POST['contenu_annonce']);
+            $taille = cleanInput($_POST['taille_annonce']);
+            $prix = cleanInput($_POST['prix_aarticle']);
 
-            $course = new ManagerDossier($dateE, $heureE, $adresseE, $villeE, $paysE, $dateL, $heureL, $adresseL, $villeL, $paysL);
-            // var_dump($course);
-            $course->createCourse($bdd);
+
+            $annonce = new ManagerAnnonce($titre, $contenu, $taille, $prix);
+            $annonce->createAnnonce($bdd);
             $message = "La course vient d'être envoyée";
         }
         else{

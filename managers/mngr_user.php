@@ -13,18 +13,20 @@
             try{
                 $nom = $this->getNomUtil();
                 $prenom = $this->getPrenomUtil();
+                $pseudo = $this->getPseudoUtil();
                 $mail = $this->getMailUtil();
                 $mdp = $this->getMdpUtil();
-                $droit = $this->getIdRole();
+                $droit = $this->getIdDroit();
                 // $token = $this->getTokenUtil();
-                $req = $bdd->prepare('INSERT INTO utilisateur(nom_util, prenom_util, mail_util, mdp_util, token_util, id_droit) 
-                VALUES(?, ?, ?, ?, ?, ?);');
+                $req = $bdd->prepare('INSERT INTO utilisateur(nom_util, prenom_util, pseudo_util, mail_util, mdp_util, token_util, id_droit) 
+                VALUES(?, ?, ?, ?, ?, ?, ?);');
                 $req->bindparam(1, $nom, PDO::PARAM_STR);
                 $req->bindparam(2, $prenom, PDO::PARAM_STR);
-                $req->bindparam(3, $mail, PDO::PARAM_STR);
-                $req->bindparam(4, $mdp, PDO::PARAM_STR);
-                $req->bindparam(5, $token, PDO::PARAM_STR);
-                $req->bindparam(6, $droit, PDO::PARAM_INT);
+                $req->bindparam(3, $pseudo, PDO::PARAM_STR);
+                $req->bindparam(4, $mail, PDO::PARAM_STR);
+                $req->bindparam(5, $mdp, PDO::PARAM_STR);
+                $req->bindparam(6, $token, PDO::PARAM_STR);
+                $req->bindparam(7, $droit, PDO::PARAM_INT);
                 $req->execute();
             }
             catch(Exception $e){
@@ -37,7 +39,7 @@
         public function getUserByEmail(object $bdd){
             try{
                 $mail = $this->getMailUtil();
-                $req = $bdd->prepare('SELECT id_util, nom_util, prenom_util, mail_util, mdp_util, token_util, valide_util, id_droit 
+                $req = $bdd->prepare('SELECT id_util, nom_util, pseudo_util, prenom_util, mail_util, mdp_util, token_util, valide_util, id_droit 
                 FROM utilisateur
                 WHERE mail_util = ?;');
                 $req->bindparam(1, $mail, PDO::PARAM_STR);
@@ -70,7 +72,7 @@
                 $mail->Port       = 587;                                    // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 // Recipients
-                $mail->setFrom($email_smtp, 'Hafarou-dine Ousseni');
+                $mail->setFrom($email_smtp, 'Baby Community');
                 $mail->addAddress($userMail);                               // Add a recipient
                 // $mail->addAddress('ellen@example.com');                  // Name is optional
                 // $mail->addReplyTo('info@example.com', 'Information');
@@ -99,7 +101,7 @@
         public function getUserByToken(object $bdd){
             try{
                 $token = $this->getTokenUtil();
-                $req = $bdd->prepare('SELECT id_util, name_util, first_name_util, mail_util, pwd_util, token_util, valide_util, id_role 
+                $req = $bdd->prepare('SELECT id_util, nom_util, prenom_util, pseudo_util, mail_util, mdp_util, token_util, valide_util, id_droit 
                 FROM utilisateur
                 WHERE token_util = ?;');
                 $req->bindparam(1, $token, PDO::PARAM_STR);
@@ -147,17 +149,19 @@
         public function updateUser($bdd):void{
             $nom = $this->getNomUtil();
             $prenom = $this->getPrenomUtil();
+            $pseudo = $this->getPseudoUtil();
             $mail = $this->getMailUtil();
             $mdp = $this->getMdpUtil();
             $id = $this->getIdUtil();
             try{
                 $req = $bdd->prepare('UPDATE utilisateur
                                       SET nom_util = :nom_util, prenom_util = :prenom_util,
-                                          mail_util = :mail_util, mdp_util = :mdp_util
+                                          prseudo_util = :prseudo_util, mail_util = :mail_util, mdp_util = :mdp_util
                                       WHERE id_util = :id_util');
                 $req->execute(array(
                     'nom_util' => $nom,
                     'prenom_util' =>$prenom,
+                    'pseudo_util' =>$pseudo,
                     'mail_util' =>$mail,
                     'mdp_util' =>$mdp,
                     'id_util' => $id

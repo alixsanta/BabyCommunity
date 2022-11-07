@@ -7,15 +7,14 @@
                 $contenu = $this->getContenuAnnonce();
                 $taille = $this->getTailleArticle();
                 $prix = $this->getPrixArticle();
-                $util = $this->getIdUtil();
-                // $token = $this->getTokenUtil();
-                $req = $bdd->prepare('INSERT INTO annonce(titre_annonce, contenu_annonce, prix_article, photo_article, id_util) 
-                VALUES(?, ?, ?, ?, ?);');
+                // $util = $this->getIdUtil();
+                $req = $bdd->prepare('INSERT INTO annonce(titre_annonce, contenu_annonce, prix_article, taille_annonce) 
+                VALUES(?, ?, ?, ?);');
                 $req->bindparam(1, $titre, PDO::PARAM_STR);
                 $req->bindparam(2, $contenu, PDO::PARAM_STR);
                 $req->bindparam(3, $taille, PDO::PARAM_STR);
                 $req->bindparam(4, $prix, PDO::PARAM_STR);
-                $req->bindparam(5, $util, PDO::PARAM_INT);
+                // $req->bindparam(5, $util, PDO::PARAM_INT);
                 $req->execute();
             }
             catch(Exception $e){

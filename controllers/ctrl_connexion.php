@@ -3,7 +3,7 @@
     include './utils/functions.php';
     include './models/mdl_user.php';
     include './managers/mngr_user.php';
-    include './views/view_create_connexion.php';
+    include './views/view_create_connexion.html';
     $message = "";
 
     if(isset($_GET['deconnexion'])){

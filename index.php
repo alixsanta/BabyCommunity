@@ -31,6 +31,7 @@
         // formulaire de connexion création
         case '/babyCommunity/create_co':
             include './controllers/ctrl_connexion.php';
+            include './controllers/ctrl_create_user.php';
             break;
 
         // page d'annonce

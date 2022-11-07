@@ -62,3 +62,18 @@ Contact :
 [X] créer le Manager
 [X] créer le model
 [X] créer le controller
+
+
+
+
+                    <?php
+                        include './models/mdl_annonce.php';
+                        include './managers/mngr_annonce.php';
+                        $user = new managerUser(null);
+                        $liste = $user->showAllUsers($bdd);
+                        foreach($liste as $value){        
+                            echo '
+                                <option>'.$value['nom_util'].' '.$value['prenom_util'].', société '.$value['societe'].'</option>
+                                ';
+                        }
+                    ?>

@@ -1,0 +1,56 @@
+/* ********* FORMULAIRE ANNONCE ********* */
+.style_post{
+    width: 100%;
+    max-width: 1120px;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    -webkit-box-align: center;
+    padding: 32px 0px;
+}
+.container{
+    /* background-color: wheat; */
+    /* position: relative; */
+    width: 960px;
+    max-width: 100%;
+    border-radius: 4px;
+    margin: 50px auto 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    -webkit-box-align: center;
+    padding: 32px 0px;
+}
+.media_select{
+    /* position: absolute; */
+    background-color: #FFFFFF;
+    border: dashed 1px;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .form_annonce{
+    margin: 10px 10px;
+}
+.container .form_annonce .box-input{
+    padding: 10px;
+}
+.select_categorie{
+    display: flex;
+    justify-content: space-around;
+}
+.container .form_annonce button{
+    border: none;
+    padding: 15px 10px;
+    margin: 1px 0;
+    font-size: 1em;
+    font-family: 'Poppins';
+    border-radius: 8px;
+}
+
+
+
+
+
