@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style_post.css">
+    <title>Baby Community</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li id="logo"><a href="/babyCommunity/">Baby Community</a></li>
+                <li><a href="#">Poster une annonce</a></li>
+                <li><a href="/babyCommunity/annonce">Les annonces</a></li>
+                <li><a href="/babyCommunity/create_co"><img src="./assets/medias/icone_util.png" alt="Mon profil" height="25px"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2 id="contact">Postez une annonce</h2>
+            <form method="post" class="form_annonce" align="center">
+                <div class="media_select">
+                    <button>Ajoutez des photos</button>
+                </div>
+
+                <!-- <div class="select_categorie box-input">
+                    <label for="select">Selectionnez une catégorie</label>
+                    <select name="id_categorie">
+                    </select>
+                </div> -->
+
+                <div class="box-input">
+                    <input type="text" name="titre_annonce" placeholder="Titre">
+                    <!-- <span>Prénom</span> -->
+                </div>
+
+                <div class="box-input">
+                    <textarea cols="30" rows="10" name="contenu_annonce" placeholder="Décrivez l'article"></textarea>
+                    <!-- <span>Dites moi tout !</span> -->
+                </div>
+
+                <div class="box-input">
+                    <input type="text" name="taille_annonce" placeholder="Taille">
+                    <!-- <span>Email</span> -->
+                </div>
+
+                <div class="box-input">
+                    <input type="text" name="prix_article" placeholder="Prix">
+                    <!-- <span>Email</span> -->
+                </div>
+                <button name="poster">Poster</button>
+            </form>
+        </div>
+    </section>
+
+        <footer>
+            <h2 id="contact">Contactez-moi</h2>
+            <form>
+                <div class="box-input">
+                    <input type="text" name="prénom_util" placeholder="Prénom" required>
+                    <!-- <span>Prénom</span> -->
+                </div>
+                <div class="box-input">
+                    <input type="mail" name="mail_util" placeholder="Email" required>
+                    <!-- <span>Email</span> -->
+                <div class="box-input">
+                    <textarea cols="30" rows="10" name="contenu_contact" placeholder="Dites moi tout !" required></textarea>
+                    <!-- <span>Dites moi tout !</span> -->
+                </div>
+                <button>Envoyer</button>
+            </form>
+    
+            <div id="trait2"></div>
+    
+            <div id="copyrightIcon">
+                <div id="copyright">
+                    <span>© Alix Santa; 2022</span>
+                </div>
+                <div id="icons">
+                    <a href="https://www.instagram.com/kfc.es/?hl=fr"><img src="../assets/medias/instagram.png"></a>
+                    <a href="https://twitter.com/KFC_ES"><img src="../assets/medias/twitter.png"></a>
+                    <a href="https://twitter.com/KFC_ES"><img src="../assets/medias/facebook.png"></a>
+                </div>
+                <span>Mentions légales</span>
+            </div>
+        </footer>
+    </body>
+    </html>

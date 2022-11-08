@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="../assets/css/style_connect.css">
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+    <link rel="stylesheet" href="./assets/css/style_connect.css">
     <title>Baby Community</title>
 </head>
 <body>
@@ -21,15 +22,16 @@
     </header>
             <!-- *****CONNEXION***** -->
     <section class="section-form">
+        <div class="content_co">
             <h3>Identifiez-vous</h3>
             <form class="style-form" method="post" align="center">
                 <div class="box-input">
-                    <input type="mail" name="mail_util" required>
+                    <input type="mail" name="mail_util" placeholder="Email">
                     <span>saisissez votre email</span>
                 </div>
 
                 <div class="box-input">
-                    <input type="password" name="mdp_util" required>
+                    <input type="password" name="mdp_util" placeholder="Mot de passe">
                     <span>Mot de passe</span>
                 </div>
 
@@ -39,40 +41,45 @@
             </form>
         </div>
 
-        <div class="horiz"></div>
+        <div class="vertic"></div>
 
             <!-- *****CREATION COMPTE***** -->
-            <h3>Vous n'avez pas encore de compte ?</h3>
-            <p>Créez ici votre compte :</p>
+        <div class="content_add">
+            <h3>Vous n'avez pas encore de compte ? <br>Créez ici votre compte :</h3>
             <form class="style-form" method="post">
 
                 <div class="box-input">
-                    <input type="text" name="nom_util">
+                    <input type="text" name="nom_util" placeholder="Saisissez votre nom" required>
                     <span>Votre nom</span>
                 </div>
                 <div class="box-input">
-                    <input type="text" name="prenom_util">
+                    <input type="text" name="prenom_util" placeholder="Votre prénom" required>
                     <span>Votre prénom</span>
                 </div>
                 <div class="box-input">
-                    <input type="mail" name="mail_util">
+                    <input type="text" name="pseudo_util" placeholder="Un pseudo" required>
+                    <span>Un pseudo</span>
+                </div>
+                <div class="box-input">
+                    <input type="mail" name="mail_util" placeholder="Votre adresse mail" required>
                     <span>Votre email</span>
                 </div>
 
                 <div class="box-input">
-                    <input type="password" name="mdp_util">
+                    <input type="password" name="mdp_util" placeholder="Un mot de passe" required>
                     <span>Un mot de passe</span>
                 </div>
 
                 <div class="box-input">
-                    <input type="password" name="confirm_mdp">
-                    <span>Confirmer le mot de passe</span>
+                    <input type="password" name="confirm_mdp" placeholder="Confirmez le mot de passe" required>
+                    <span>Confirmez le mot de passe</span>
                 </div>
 
                 <div>
                     <input type="submit" value="Enregister" name="creation">
                 </div>
             </form>
+        </div>
     </section>
 
         <!-- ********* FOOTER ********* -->

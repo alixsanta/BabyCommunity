@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="../assets/css/style_home.css">
+    <link rel="stylesheet" href="./assets/css/style_home.css">
     <title>Baby Community</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 <li id="logo"><a href="/babyCommunity/">Baby Community</a></li>
-                <li><a href="#">Poster une annonce</a></li>
+                <li><a href="/babyCommunity/post">Poster une annonce</a></li>
                 <li><a href="/babyCommunity/annonce">Les annonces</a></li>
                 <li><a href="/babyCommunity/create_co">S'inscrire | Se connecter</a></li>
             </ul>
@@ -96,15 +96,15 @@
         <h2 id="contact">Contactez-moi</h2>
         <form>
             <div class="box-input">
-                <input type="text" name="prénom_util" required>
-                <span>Prénom</span>
+                <input type="text" name="prénom_util" placeholder="Prénom" required>
+                <!-- <span>Prénom</span> -->
             </div>
             <div class="box-input">
-                <input type="mail" name="mail_util" required>
-                <span>Email</span>
+                <input type="mail" name="mail_util" placeholder="Email" required>
+                <!-- <span>Email</span> -->
             <div class="box-input">
-                <textarea cols="30" rows="10" name="contenu_contact" required></textarea>
-                <span>Dites moi tout !</span>
+                <textarea cols="30" rows="10" name="contenu_contact" placeholder="Dites moi tout !" required></textarea>
+                <!-- <span>Dites moi tout !</span> -->
             </div>
             <button>Envoyer</button>
         </form>
