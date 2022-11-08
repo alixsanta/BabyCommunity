@@ -90,11 +90,13 @@ h1{
     box-shadow: 1px 2px 2px #F1E3D3;
 }
 h3{
+    font-family: 'Abril Fatface';
+    font-weight: 100;
+    letter-spacing: 0.1em;
     text-align: center;
-    color: black;
-    margin-top: 150px;
+    color: #c38370;
+    margin-top: 120px;
     font-size: 2em;
-    /* text-shadow: 1px 2px 2px #F1E3D3; */
 }
 
 /* ********* PRESENTATION ********* */
@@ -140,7 +142,7 @@ h4{
     height: 200px;
     background-color: white;
     border-radius: 10px;
-    border: 20px solid rgba(211, 211, 211, 0.384);
+    border: 20px solid #f5deb340;
     margin: 10px;
     font-size: 0.8em;
 }
