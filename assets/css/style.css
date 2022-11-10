@@ -42,7 +42,7 @@ a{
 nav{
     overflow: hidden;
     background-color: #EAAC8B;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
 }
 header li{

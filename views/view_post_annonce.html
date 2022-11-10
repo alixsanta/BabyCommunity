@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/style_post.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style_post.css">
     <title>Baby Community</title>
 </head>
 <body>
@@ -16,24 +16,45 @@
                 <li id="logo"><a href="/babyCommunity/">Baby Community</a></li>
                 <li><a href="#">Poster une annonce</a></li>
                 <li><a href="/babyCommunity/annonce">Les annonces</a></li>
-                <li><a href="/babyCommunity/create_co"><img src="./assets/medias/icone_util.png" alt="Mon profil" height="25px"></a></li>
+                <li><a href="/babyCommunity/create_co"><img src="../assets/medias/icone_util.png" alt="Mon profil" height="25px"></a></li>
             </ul>
         </nav>
     </header>
 
+                                        <!-- *****CRÉATION ANNONCE****** -->
     <section>
         <div class="container">
             <h2 id="contact">Postez une annonce</h2>
             <form method="post" class="form_annonce" align="center">
+                <!-- <div class="media_select">
+                    <div class="box-video">
+                        <video id="webCam" autoplay playsin1ne width="400px" height="600px"></video>
+                    </div>
+                    <button><a download onClick="prendrePhoto()">Ajoutez des photos</a></button>
+                    <canvas id="canvas"></canvas> -->
+                <!-- </div> -->
                 <div class="media_select">
-                    <button>Ajoutez des photos</button>
+                    <input type="file" placeholder="Ajouter des photos">
+                    <span>Ajouter des photos</span>
+                    <input type="file" placeholder="Ajouter des photos">
                 </div>
 
-                <!-- <div class="select_categorie box-input">
+
+                <div class="select_categorie box-input">
                     <label for="select">Selectionnez une catégorie</label>
                     <select name="id_categorie">
+                        <option value="id_categorie">"vêtements fille"</option>
+                        <option value="categorie">"vêtements garçon"</option>
+                        <option value="categorie">"Jouets"</option>
+                        <option value="categorie">"Soins bébé"</option>
+                        <option value="categorie">"Poussettes"</option>
+                        <option value="categorie">"Trotteurs & vélos"</option>
+                        <option value="categorie">"Chaises hautes & Sièges auto"</option>
+                        <option value="categorie">"Mobilier enfant"</option>
+                        <option value="categorie">"Scolarité"</option>
+                        <option value="categorie">"Autres"</option>
                     </select>
-                </div> -->
+                </div>
 
                 <div class="box-input">
                     <input type="text" name="titre_annonce" placeholder="Titre">
@@ -90,5 +111,6 @@
                 <span>Mentions légales</span>
             </div>
         </footer>
+        <script src="../assets/javaScript/cam.js"></script>
     </body>
     </html>

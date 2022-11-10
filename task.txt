@@ -8,7 +8,9 @@
 Models et Managers :
 [X] users
 [X] annonces
-[X]
+[--] catégorie
+[--] contact
+[X] image
 
 Page de création de compte - Connexion :
 [X] créer la vue
