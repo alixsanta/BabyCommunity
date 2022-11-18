@@ -47,7 +47,7 @@ nav{
 }
 header li{
     float: right;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 header li a{
     color: #B56576;
@@ -94,6 +94,7 @@ form input, textarea, button{
     font-size: 1em;
     font-family: 'Poppins';
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 textarea{
     height: 100px;
@@ -120,8 +121,8 @@ button:hover{
 span{
     width: auto;
     text-align: left;
-    color: #F1E3D3;
-    font-size: small;
+    color: #B56576;
+    font-size: 1.2em;
 }
 #icons{
     text-align: right;

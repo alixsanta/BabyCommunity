@@ -26,40 +26,24 @@
         <div class="container">
             <h2 id="contact">Postez une annonce</h2>
             <form method="post" class="form_annonce" align="center">
-                <!-- <div class="media_select">
-                    <div class="box-video">
-                        <video id="webCam" autoplay playsin1ne width="400px" height="600px"></video>
-                    </div>
-                    <button><a download onClick="prendrePhoto()">Ajoutez des photos</a></button>
-                    <canvas id="canvas"></canvas> -->
-                <!-- </div> -->
-                <div class="media_select">
-                    <input type="file" placeholder="Ajouter des photos">
-                    <span>Ajouter des photos</span>
-                    <input type="file" placeholder="Ajouter des photos">
-                </div>
-
-
-                <div class="select_categorie box-input">
-                    <label for="select">Selectionnez une catégorie</label>
-                    <select name="id_categorie">
-                        <option value="id_categorie">"vêtements fille"</option>
-                        <option value="categorie">"vêtements garçon"</option>
-                        <option value="categorie">"Jouets"</option>
-                        <option value="categorie">"Soins bébé"</option>
-                        <option value="categorie">"Poussettes"</option>
-                        <option value="categorie">"Trotteurs & vélos"</option>
-                        <option value="categorie">"Chaises hautes & Sièges auto"</option>
-                        <option value="categorie">"Mobilier enfant"</option>
-                        <option value="categorie">"Scolarité"</option>
-                        <option value="categorie">"Autres"</option>
-                    </select>
-                </div>
 
                 <div class="box-input">
                     <input type="text" name="titre_annonce" placeholder="Titre">
                     <!-- <span>Prénom</span> -->
                 </div>
+
+                <div class="media_select">
+                    <input type="file" name="url_image">
+                    <span>Ajouter des photos</span>
+                </div>
+
+
+                <div class="select_categorie box-input">
+                    <label for="select">Selectionnez une catégorie</label>
+                    <select name="id_categorie" id="id_categorie">
+                    </select>
+                </div>
+
 
                 <div class="box-input">
                     <textarea cols="30" rows="10" name="contenu_annonce" placeholder="Décrivez l'article"></textarea>
@@ -111,6 +95,7 @@
                 <span>Mentions légales</span>
             </div>
         </footer>
+        <script src="../assets/javaScript/script.js"></script>
         <script src="../assets/javaScript/cam.js"></script>
     </body>
     </html>

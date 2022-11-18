@@ -21,7 +21,7 @@
         }
 
         // Afficher une categorie
-        public function showcategorieById($bdd):array{
+        public function showCategorieById($bdd):array{
             try{
                 $req = $bdd->prepare('SELECT * FROM categorie 
                 WHERE id_categorie = :id_categorie');
@@ -52,8 +52,8 @@
         public function getAllCategory($bdd):?array{
             try {
                 //stocker et évaluer la requête
-                $req = $bdd->prepare("SELECT id_cat, nom_cat FROM 
-                categorie ORDER BY nom_cat ASC");
+                $req = $bdd->prepare("SELECT id_categorie, categorie FROM 
+                categorie ORDER BY categorie ASC");
                 //exécuter la requête
                 $req->execute();
                 //stocker dans $data le résultat de la requête (tableau associatif)

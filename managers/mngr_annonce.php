@@ -8,13 +8,19 @@
                 $taille = $this->getTailleArticle();
                 $prix = $this->getPrixArticle();
                 $util = $this->getIdUtil();
-                $req = $bdd->prepare('INSERT INTO annonce(titre_annonce, contenu_annonce, prix_article, taille_annonce, id_util) 
-                VALUES(?, ?, ?, ?, ?);');
+                $cat = $this->getIdCat();
+                $img = $this->getIdImg();
+                $req = $bdd->prepare('INSERT INTO annonce(
+                    titre_annonce, contenu_annonce, prix_article, taille_annonce,
+                    id_util, id_categorie, id_image)
+                VALUES(?, ?, ?, ?, ?, ?, ?);');
                 $req->bindparam(1, $titre, PDO::PARAM_STR);
                 $req->bindparam(2, $contenu, PDO::PARAM_STR);
                 $req->bindparam(3, $taille, PDO::PARAM_STR);
                 $req->bindparam(4, $prix, PDO::PARAM_STR);
                 $req->bindparam(5, $util, PDO::PARAM_INT);
+                $req->bindparam(6, $cat, PDO::PARAM_INT);
+                $req->bindparam(7, $img, PDO::PARAM_INT);
                 $req->execute();
             }
             catch(Exception $e){
@@ -86,6 +92,24 @@
                     ));
             }
             catch(Exception $e){
+                die('Erreur : '.$e->getMessage());
+            }
+        }
+
+        //retourne la liste de toutes les annonces
+        function getAllAnnonceByValue($bdd, $titre, $contenu):?array{
+            try {
+                $req = $bdd->prepare("SELECT titre_annonce, contenu_annonce 
+                FROM annonce WHERE titre_annonce = ? AND contenu_annonce = ?");
+                $req->bindParam(1, $titre, PDO::PARAM_STR);
+                $req->bindParam(2, $contenu, PDO::PARAM_STR);
+                $req->execute();
+                //stocke le résultat de la requête (tableau associatif)
+                $data = $req->fetchAll(PDO::FETCH_ASSOC);
+                //retourne le tableau associatif
+                return $data;
+            } 
+            catch (Exception $e){
                 die('Erreur : '.$e->getMessage());
             }
         }

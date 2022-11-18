@@ -1,87 +1,89 @@
-create database babyCommunity;
-use babyCommunity;
+CREATE DATABASE babyCommunity;
 
-create table utilisateur
+USE babyCommunity;
+
+CREATE TABLE utilisateur
 (
-	id_util int primary key auto_increment not null,
-    nom_util varchar(50) not null,
-    prenom_util varchar(50) not null,
-    pseudo_util varchar(50) not null,
-    mail_util varchar(50),
-    mdp_util varchar(100) not null,
-    id_droit int not null default 1,
-    valide_util boolean not null default 0,
-    token_util varchar(100) null
+	id_util INT PRIMARY KEY auto_increment NOT NULL,
+    nom_util VARCHAR(50) NOT NULL,
+    prenom_util VARCHAR(50) NOT NULL,
+    pseudo_util VARCHAR(50) NOT NULL,
+    mail_util VARCHAR(50),
+    mdp_util VARCHAR(100) NOT NULL,
+    id_droit int NOT NULL DEFAULT 1,
+    valide_util boolean NOT NULL DEFAULT 0,
+    token_util VARCHAR(100) NULL
 )engine=InnoDB;
 
-create table droit (
-	id_droit int primary key auto_increment not null
+CREATE TABLE droit (
+	id_droit INT PRIMARY KEY auto_increment NOT NULL
 )engine=InnoDB;
 
-create table annonce (
-	id_annonce int primary key auto_increment not null,
-    titre_annonce varchar(50),
-    contenu_annonce varchar(100),
-    taille varchar(50),
-    prix varchar(50),
-    id_utilisateur int
+CREATE TABLE annonce (
+	id_annonce INT PRIMARY KEY auto_increment NOT NULL,
+    titre_annonce VARCHAR(50),
+    contenu_annonce VARCHAR(100),
+    taille VARCHAR(50),
+    prix float,
+    id_util INT,
 )engine=InnoDB;
 
-create table images (
-    id_image int primary key auto_increment not null,
-    url_image varchar(100),
-    id_annonce int,
-    id_util int,
-    constraint fk_id_util foreign key (id_util) REFERENCES utilisateur(id_util) on delete cascade,
-    constraint fk_id_annonce foreign key (id_annonce) REFERENCES annonce(id_annonce) on delete cascade
+CREATE TABLE images (
+    id_image INT PRIMARY KEY auto_increment NOT NULL,
+    url_image VARCHAR(100),
+    nom_image VARCHAR(50),
+    id_annonce INT,
+    id_util INT,
+    CONSTRAINT fk_id_util FOREIGN KEY (id_util) REFERENCES utilisateur(id_util) ON DELETE CASCADE,
+    CONSTRAINT fk_id_annonce FOREIGN KEY (id_annonce) REFERENCES annonce(id_annonce) ON DELETE CASCADE
 )engine=InnoDB;
 
-create table categorie (
-    id_categorie int primary key auto_increment not null,
-    categorie varchar(50)
+CREATE TABLE categorie (
+    id_categorie INT PRIMARY KEY auto_increment NOT NULL,
+    categorie VARCHAR(50)
 )engine=InnoDB;
 
-create table posseder (
-	id_util int,
-    id_droit int,
-    primary key (id_droit, id_user)
+CREATE TABLE posseder (
+	id_util INT,
+    id_droit INT,
+    PRIMARY KEY (id_droit, id_user)
 )engine=InnoDB;
 
-create table commentaire (
-    commentaire text not null,
-    id_util int,
-    id_annonce int,
-    constraint fk_id_util foreign key (id_util) REFERENCES utilisateur(id_util) on delete set null,
-    constraint fk_id_annonce foreign key (id_annonce) REFERENCES annonce(id_annonce) on delete set null
+CREATE TABLE commentaire (
+    commentaire text NOT NULL,
+    id_util INT,
+    id_annonce INT,
+    CONSTRAINT fk_id_util FOREIGN KEY (id_util) REFERENCES utilisateur(id_util) ON DELETE SET NULL,
+    CONSTRAINT fk_id_annonce FOREIGN KEY (id_annonce) REFERENCES annonce(id_annonce) ON DELETE SET NULL
 )engine=InnoDB;
 
-create table rattacher (
-    id_categorie int,
-    id_annonce int,
-    constraint fk_id_categorie foreign key (id_categorie) REFERENCES categorie(id_categorie) on delete set null,
-    constraint fk_id_annonce foreign key (id_annonce) REFERENCES annonce(id_annonce) on delete set null,
+CREATE TABLE rattacher (
+    id_categorie INT,
+    id_annonce INT,
+    CONSTRAINT fk_id_categorie FOREIGN KEY (id_categorie) REFERENCES categorie(id_categorie) ON DELETE SET NULL,
+    CONSTRAINT fk_id_annonce FOREIGN KEY (id_annonce) REFERENCES annonce(id_annonce) ON DELETE SET NULL,
 )engine=InnoDB;
 
-create table ami (
-    id_accepteur int,
-    id_demandeur int,
-    constraint fk_id_demandeur foreign key (id_demandeur) REFERENCES utilisateur(id_util) on delete set null,
-    constraint fk_id_accepteur foreign key (id_accepteur) REFERENCES utilisateur(id_util) on delete set null
+CREATE TABLE ami (
+    id_accepteur INT,
+    id_demandeur INT,
+    CONSTRAINT fk_id_demandeur FOREIGN KEY (id_demandeur) REFERENCES utilisateur(id_util) ON DELETE SET NULL,
+    CONSTRAINT fk_id_accepteur FOREIGN KEY (id_accepteur) REFERENCES utilisateur(id_util) ON DELETE SET NULL
 )engine=InnoDB;
 
 
-alter table utilisateur
-add constraint fk_posseder_droit
-foreign key (id_droit) references droit(id_droit)
-on delete cascade;
+ALTER TABLE utilisateur
+add CONSTRAINT fk_posseder_droit
+FOREIGN KEY (id_droit) references droit(id_droit)
+ON DELETE CASCADE;
 
-alter table annonce
-add constraint fk_poster_annonce
-foreign key (id_util) references utilisateur(id_util)
-on delete cascade;
+ALTER TABLE annonce
+add CONSTRAINT fk_poster_annonce
+FOREIGN KEY (id_util) references utilisateur(id_util)
+ON DELETE CASCADE;
 
 
-insert into categorie (id_categorie, categorie) values
+INSERT INTO categorie (id_categorie, categorie) values
 (1, "Filles"), (2, "Garçons"), (3,"Jouets"),
 (4, "Soins bébé"), (5, "Poussettes"), (6, "Trotteurs & vélos"),
 (7, "Chaises hautes & Sièges auto"),

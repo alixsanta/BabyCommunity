@@ -181,9 +181,7 @@
                     'id_util' => $this->getIdUser(),
                     ));
             }
-            catch(Exception $e)
-            {
-                // affichage d'une exception en cas d’erreur
+            catch(Exception $e){
                 die('Erreur : '.$e->getMessage());
             }
         }

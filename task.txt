@@ -79,3 +79,12 @@ Contact :
                                 ';
                         }
                     ?>
+
+fonction js :
+<!-- <div class="media_select">
+        <div class="box-video">
+            <video id="webCam" autoplay playsin1ne width="400px" height="600px"></video>
+        </div>
+        <button><a download onClick="prendrePhoto()">Ajoutez des photos</a></button>
+        <canvas id="canvas"></canvas> -->
+<!-- </div> -->

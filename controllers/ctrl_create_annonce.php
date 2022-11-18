@@ -8,21 +8,12 @@
 
 
     $liste = getAllCategory($bdd);
-    //compteur pour liste
-    $cpt= 0;
     //boucle pour parcourir la liste
     foreach($liste as $value){
-        if($cpt <1){
-            //construction des options de la liste
-            echo '<option value = '.$value['id_categorie'].' selected>'.$value['categorie'].'</option>';
-            $cpt++;
-        }
-        //sinon on affiche l'option sans selected
-        else{
-             //construction des options de la liste
+            //construction de la liste
             echo '<option value = '.$value['id_categorie'].'>'.$value['categorie'].'</option>';
+            $cpt++;
         } 
-    }
     //afficher la fin du formulaire
     // echo '</select></p>
     //     <p>Saisir date l\'article</p>
@@ -32,70 +23,60 @@
     //     </form>';  
 
     if(isset($_POST['poster'])){
-        if($_POST['titre_annonce'] !="" && $_POST['contenu_annonce'] !="" &&
-        $_POST['taille_annonce'] !="" && $_POST['prix_article'] !=""){
+        if($_POST['url_image'] !="" && $_POST['titre_annonce'] !="" && $_POST['contenu_annonce'] !="" &&
+           $_POST['taille_annonce'] !="" && $_POST['prix_article'] !=""){
+                $image = cleanInput($_POST['url_image']);
                 $titre = cleanInput($_POST['titre_annonce']);
+                $categorie = cleanInput($_POST['id_categorie']);
                 $contenu = cleanInput($_POST['contenu_annonce']);
                 $taille = cleanInput($_POST['taille_annonce']);
                 $prix = cleanInput($_POST['prix_article']);
-                $exist = getAllArticleByValue($bdd, $titre, $contenu);
-                //test si l'article n'existe pas (doublon)
+                $exist = getAllAnnonceByValue($bdd, $titre, $contenu);
+                //si l'annonce n'existe pas (doublon) ?
                 if(empty($exist)){
-                    if(isset($_FILES['url_image']) AND $_FILES['url_image']['nom_image'] !=""){
+                    if(isset($_FILES['url_image']) && $_FILES['url_image']['nom_image'] !=""){
                         //stockage des valeurs du fichier importé
-                        $nom_image = $_FILES['url_image']['nom_image'];
+                        $nom_image = $_FILES['url_image'] ['nom_image'];
                         $tmp = $_FILES['url_image']['tmp'];
                         $size = $_FILES['url_image']['size'];
                         $error = $_FILES['url_image']['error'];
-                        $ext = get_file_extension($_FILES['url_image']['nom_image']);
-                        //test de la taille si plus grand que 5 Mo (5*1024*1024 octes)
+                        $ext = get_file_extension($_FILES['url_image']);
+                        //si taille fichier > 5 Mo (5*1024*1024 octes)
                         if($size>5*1024*1024){
-                            $message = "le fichier est trop grand taille max 5Mo";
+                            $message = "Trop grand, veuillez choisir une photo plus petite";
                         }
-                        //test si il à la bonne taille
+                        //si taille OK :
                         else{
-                            //test si le format est bon (jpg, jpeg)
+                            //format OK (jpg, jpeg)?
                             if(strtolower($ext)=='jpg' OR strtolower($ext)=='jpeg' OR strtolower($ext)=='png'){
-                                $img = './asset/image/'.$nomArticle.$dateArticle.'.'.$ext;
-                                //appeler la fonction pour déplacer et renommer un fichier
-                                move_uploaded_file($tmpName, $img);
+                                $img = './assets/medias/'.$nom_image.'.'.$ext;
                             }
-                            //test sinon le format n'est pas bon
+                            //mauvais format
                             else{
                                 $message = "le fichier n'est pas au bon format";
                             }
                         }
                     }
-                    //test si on n'a pas d'image (image par défaut)
-                    else{
-                    $img = './asset/image/defaut.png';
+                    $annonce = new ManagerAnnonce($titre, $contenu, $taille, $prix, $id_categorie, $image);
+                    $annonce->createAnnonce($bdd);
+                    $message = "$titre vient d'être publiée";
+                } else {
+                    $message = "Vous avez déja publiée cette annonce";
                 }
-                $annonce = new ManagerAnnonce($titre, $contenu, $taille, $prix, $id_cat, $img);
-                $annonce->createAnnonce($bdd);
-                $message = "Votre annonce : $titre vient d'être publiée";
-            }
-            else{
-                $message = "Article : $nomArticle existe déja veuillez le renommer";
-            }
+        } else {
+            $message = "Veuillez remplir toutes les informations";
         }
-        //test si un ou plusieurs champs ne sont pas remplis
-        else{
-            $message = "Veuillez remplir les champs du formulaire";
-        }
+
     }
-    //test si le bouton n'est pas cliqué
-    else{
-        $message = "Pour publier votre annonce, n'oubliez pas de cliquer sur poster";
-    }
-    //affichage des erreurs
     echo $message;
-    include './view/view_footer.php';
+
+
+
 
 
             
 
         
-    echo $message;
 
     
 
@@ -133,8 +114,6 @@
                         //test si le format est bon (jpg, jpeg)
                         if(strtolower($ext)=='jpg' OR strtolower($ext)=='jpeg' OR strtolower($ext)=='png'){
                             $img = './asset/image/'.$nomArticle.$dateArticle.'.'.$ext;
-                            //appeler la fonction pour déplacer et renommer un fichier
-                            move_uploaded_file($tmpName, $img);
                         }
                         //test sinon le format n'est pas bon
                         else{
