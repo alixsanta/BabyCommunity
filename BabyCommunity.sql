@@ -40,7 +40,7 @@ CREATE TABLE images (
 
 CREATE TABLE categorie (
     id_categorie INT PRIMARY KEY auto_increment NOT NULL,
-    categorie VARCHAR(50)
+    nom_categorie VARCHAR(50)
 )engine=InnoDB;
 
 CREATE TABLE posseder (
@@ -64,7 +64,7 @@ CREATE TABLE rattacher (
     CONSTRAINT fk_id_annonce FOREIGN KEY (id_annonce) REFERENCES annonce(id_annonce) ON DELETE SET NULL,
 )engine=InnoDB;
 
-CREATE TABLE ami (
+CREATE TABLE suivre (
     id_accepteur INT,
     id_demandeur INT,
     CONSTRAINT fk_id_demandeur FOREIGN KEY (id_demandeur) REFERENCES utilisateur(id_util) ON DELETE SET NULL,
@@ -83,7 +83,7 @@ FOREIGN KEY (id_util) references utilisateur(id_util)
 ON DELETE CASCADE;
 
 
-INSERT INTO categorie (id_categorie, categorie) values
+INSERT INTO categorie (id_categorie, nom_categorie) values
 (1, "Filles"), (2, "Garçons"), (3,"Jouets"),
 (4, "Soins bébé"), (5, "Poussettes"), (6, "Trotteurs & vélos"),
 (7, "Chaises hautes & Sièges auto"),

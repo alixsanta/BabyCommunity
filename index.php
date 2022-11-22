@@ -41,6 +41,7 @@
 
         // poster annonce
         case '/babyCommunity/post':
+            include './controllers/ctrl_cat.php';
             include './controllers/ctrl_create_annonce.php';
             break;
 

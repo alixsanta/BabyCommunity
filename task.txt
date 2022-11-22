@@ -69,16 +69,16 @@ Contact :
 
 
                     <?php
-                        include './models/mdl_annonce.php';
-                        include './managers/mngr_annonce.php';
-                        $user = new managerUser(null);
-                        $liste = $user->showAllUsers($bdd);
-                        foreach($liste as $value){        
-                            echo '
-                                <option>'.$value['nom_util'].' '.$value['prenom_util'].', société '.$value['societe'].'</option>
-                                ';
-                        }
-                    ?>
+                    include './models/mdl_categorie.php';
+                    include './managers/mngr_categorie.php';
+                    $cat = new managercat(null);
+                    $liste = $cat->getAllCategory($bdd);
+                    foreach($liste as $value){        
+                        echo '
+                            <option>'.$value['nom_categorie'].'</option>
+                            ';
+                    }
+                ?>
 
 fonction js :
 <!-- <div class="media_select">

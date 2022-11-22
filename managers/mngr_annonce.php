@@ -97,7 +97,7 @@
         }
 
         //retourne la liste de toutes les annonces
-        function getAllAnnonceByValue($bdd, $titre, $contenu):?array{
+        public function getAllAnnonceByValue($bdd, $titre, $contenu):?array{
             try {
                 $req = $bdd->prepare("SELECT titre_annonce, contenu_annonce 
                 FROM annonce WHERE titre_annonce = ? AND contenu_annonce = ?");
@@ -113,5 +113,6 @@
                 die('Erreur : '.$e->getMessage());
             }
         }
+
     }
 ?>
