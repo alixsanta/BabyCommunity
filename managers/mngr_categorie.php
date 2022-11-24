@@ -51,19 +51,17 @@
         //fonction qui retourne la liste des categories
         public function getAllCategory($bdd):?array{
             try {
-                //stocker et évaluer la requête
-                $req = $bdd->prepare("SELECT id_categorie, categorie FROM 
-                categorie ORDER BY categorie ASC");
-                //exécuter la requête
+                //stocke et évalue la requête
+                $req = $bdd->prepare("SELECT nom_categorie FROM 
+                categorie");
+                //exécute la requête
                 $req->execute();
-                //stocker dans $data le résultat de la requête (tableau associatif)
+                //stocke dans $data le résultat de la requête (tableau associatif)
                 $data = $req->fetchAll(PDO::FETCH_ASSOC);
                 //retourner le tableau associatif
                 return $data;
             } 
-            catch (Exception $e) 
-            {
-                //affichage d'une exception en cas d’erreur
+            catch (Exception $e) {
                 die('Erreur : '.$e->getMessage());
             }
         }
