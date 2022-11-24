@@ -1,11 +1,10 @@
 <?php
     include './utils/bdd_connect.php';
-    include_once './utils/functions.php';
+    include './utils/functions.php';
     include './models/mdl_annonce.php';
     include './managers/mngr_annonce.php';
     include './views/view_post_annonce.html';
     $message = "";
-
 
 
     if(isset($_POST['poster'])){
