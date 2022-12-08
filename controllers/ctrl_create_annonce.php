@@ -8,18 +8,34 @@
 
 
     if(isset($_POST['poster'])){
-        if($_POST['titre_annonce'] !="" && $_POST['url_image'] !="" && $_POST['nom_categorie'] !="" && $_POST['contenu_annonce'] !="" &&
-           $_POST['taille_annonce'] !="" && $_POST['prix_article'] !=""){
+        if($_POST['titre_annonce'] !="" && $_POST['url_image'] !="" && $_POST['nom_categorie'] !="" &&
+           $_POST['contenu_annonce'] !="" && $_POST['taille_annonce'] !="" && $_POST['prix_article'] !=""){
                 $titre = cleanInput($_POST['titre_annonce']);
                 $image = cleanInput($_POST['url_image']);
-                $categorie = cleanInput($_POST['categorie']);
+                $categorie = cleanInput($_POST['nom_categorie']);
                 $contenu = cleanInput($_POST['contenu_annonce']);
                 $taille = cleanInput($_POST['taille_annonce']);
                 $prix = cleanInput($_POST['prix_article']);
-                $exist = getAllAnnonceByValue($bdd, $titre, $contenu);
+
+                $exist = $annonce->getAnnonceByValue($bdd, $titre, $contenu);
                 //si l'annonce n'existe pas (doublon) ?
                 if(empty($exist)){
-                    if(isset($_FILES['url_image']) && $_FILES['url_image']['nom_image'] !=""){
+                    $annonce = new ManagerAnnonce($titre, $image, $categorie, $contenu, $taille, $prix);
+                    $annonce->createAnnonce($bdd);
+                    $message = "$titre vient d'être publiée";
+                } else {
+                    $message = "Vous avez déja publiée cette annonce";
+                }
+        } else {
+            $message = "Veuillez remplir toutes les informations";
+        }
+
+    }
+    echo $message;
+?>
+
+
+if(isset($_FILES['url_image']) && $_FILES['url_image']['nom_image'] !=""){
                         //stockage des valeurs du fichier importé
                         $nom_image = $_FILES['url_image'] ['nom_image'];
                         $tmp = $_FILES['url_image']['tmp'];
@@ -42,16 +58,3 @@
                             }
                         }
                     }
-                    $annonce = new ManagerAnnonce($titre, $contenu, $taille, $prix, $id_categorie, $image);
-                    $annonce->createAnnonce($bdd);
-                    $message = "$titre vient d'être publiée";
-                } else {
-                    $message = "Vous avez déja publiée cette annonce";
-                }
-        } else {
-            $message = "Veuillez remplir toutes les informations";
-        }
-
-    }
-    echo $message;
-?>

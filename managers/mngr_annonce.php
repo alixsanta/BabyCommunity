@@ -97,16 +97,14 @@
         }
 
         //retourne la liste de toutes les annonces
-        public function getAllAnnonceByValue($bdd, $titre, $contenu):?array{
+        public function getAnnonceByValue($bdd, $titre, $contenu):?array{
             try {
                 $req = $bdd->prepare("SELECT titre_annonce, contenu_annonce 
                 FROM annonce WHERE titre_annonce = ? AND contenu_annonce = ?");
                 $req->bindParam(1, $titre, PDO::PARAM_STR);
                 $req->bindParam(2, $contenu, PDO::PARAM_STR);
                 $req->execute();
-                //stocke le résultat de la requête (tableau associatif)
                 $data = $req->fetchAll(PDO::FETCH_ASSOC);
-                //retourne le tableau associatif
                 return $data;
             } 
             catch (Exception $e){

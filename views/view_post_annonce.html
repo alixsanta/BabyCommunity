@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/style_post.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style_post.css">
     <title>Baby Community</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
                 <li id="logo"><a href="/babyCommunity/">Baby Community</a></li>
                 <li><a href="#">Poster une annonce</a></li>
                 <li><a href="/babyCommunity/annonce">Les annonces</a></li>
-                <li><a href="/babyCommunity/create_co"><img src="./assets/medias/icone_util.png" alt="Mon profil" height="25px"></a></li>
+                <li><a href="/babyCommunity/create_co"><img src="../assets/medias/icone_util.png" alt="Mon profil" height="25px"></a></li>
             </ul>
         </nav>
     </header>
@@ -30,20 +30,22 @@
                 <div class="box-input">
                     <input type="text" name="titre_annonce" placeholder="Titre">
                 </div>
-
+                    <!-- fichier -->
                 <div class="media_select">
-                    <input type="file" name="url_image" placeholder="Ajouter des photos">
-                    <!-- <span>Ajouter des photos</span> -->
+                    <div class="inside">
+                        <input type="file" name="url_image" placeholder="Ajouter des photos">
+                    </div>
                 </div>
-
+                    <!-- catégorie -->
                 <div class="select_categorie box-input">
                     <label for="select">Selectionnez une catégorie</label>
-                    <select name="nom_categorie" id="id_categorie">                    
+                    <select name="nom_categorie" id="id_categorie">
                     </select>
                 </div>
 
                 <div class="box-input">
-                    <textarea cols="30" rows="10" name="contenu_annonce" placeholder="Décrivez l'article"></textarea>
+                    <textarea cols="30" rows="10" name="contenu_annonce" placeholder="Décrivez l'article">
+                    </textarea>
                 </div>
 
                 <div class="box-input">

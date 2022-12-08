@@ -50,7 +50,6 @@
             include './controllers/ctrl_annonce.php';
             break;
 
-
         //cas la route n'existe pas
         default:
             include './view/view_404.php';

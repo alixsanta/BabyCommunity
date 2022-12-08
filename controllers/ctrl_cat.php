@@ -10,8 +10,8 @@
     $liste = $categorie->getAllCategory($bdd);
     //boucle pour parcourir la liste
     foreach($liste as $value){
-            //construction de la liste
-            echo '<option value = '.$value['nom_categorie'].'</option>';
+        //construction de la liste
+        echo '<option value = '.$value['nom_categorie'].'</option>';
         } 
     //afficher la fin du formulaire
     // echo '</select></p>
